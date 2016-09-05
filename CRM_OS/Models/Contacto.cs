@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Contacto
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Contacto
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Contacto()
+         public Contacto()
         {
             this.Cuenta = new HashSet<Cuenta>();
         }
-    
+        [Key]
         public int idContacto { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
@@ -30,7 +30,6 @@ namespace CRM.ENTITY
         public string correo { get; set; }
     
         public virtual Cargo Cargo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cuenta> Cuenta { get; set; }
     }
 }

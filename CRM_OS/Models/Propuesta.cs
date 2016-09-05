@@ -7,13 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Propuesta
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Propuesta
     {
+        [Key]
         public int idPropuesta { get; set; }
         public int idOpurtunidadNegocio { get; set; }
         public System.DateTime fecha { get; set; }

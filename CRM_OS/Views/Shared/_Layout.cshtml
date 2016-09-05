@@ -1,6 +1,5 @@
 ﻿
 @using CRM_OS.Models
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +25,7 @@
 
 <body class="hold-transition skin-green-light sidebar-mini fixed">
 
-    @if (Request.IsAuthenticated)
-    {
+    
         <div class="wrapper">
 
             <header class="main-header">
@@ -167,19 +165,16 @@
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-laptop"></i>
-                                <span>UI Elements</span>
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>Cuenta</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                                <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                                <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                                <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                                <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i>Lista Cuentas</a></li>
+                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>Agregar Cuenta</a></li>
+                                
                             </ul>
                         </li>
                         <li class="treeview">
@@ -276,19 +271,39 @@
                                             </ul>
                                         </li>
                                     </ul>
+
                                 </li>
                                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-building" aria-hidden="true"></i> <span>Empresa</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Empresa</a></li>
+                                <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
+                                <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+                                <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+                                <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+                                <li><a href="pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
+                                <li><a href="pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
+                                <li><a href="pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
+                                <li><a href="pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
+                            </ul>
+                        </li>
                         <li>
-                        
-                        <a href="documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+                        <li> @Html.ActionLink("Registrarse", "Create", "Usuarios", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+
+
                         <li class="header">LABELS</li>
                         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
                         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
                         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-                        <li> <a href='<%: @Url.Action("Register", "Account", null) 0%>'><i class="fa fa-circle-o text-aqua"></i><span>Information</span></a></li>
-                    </ul>
+                              </ul>
                 </section>
                 <!-- /.sidebar -->
             </aside>
@@ -476,43 +491,10 @@
                  immediately after the control sidebar -->
             <div class="control-sidebar-bg"></div>
         </div>
-
-    }
-    else
-    {
-        
-      
-        @RenderBody()
-        @model LoginViewModel
-        <div class="app-cross" id="app-cross-id">
-            <div class="cross"><img src="~/dist/img/logo.png" class="img-responsive" alt="" /></div>
-            <h2>SIGN IN </h2>
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                 @Html.TextBoxFor(m => m.Email, new { @class = "text", @placeholder = "Correo electrónico" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-
-                @Html.PasswordFor(m => m.Password, new { @class = "", @placeholder = "Contraseña" })
-                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        <input type="submit" value="Iniciar sesión" class="submit" onclick="location.href='@Url.Action("Create", "User")'" />
-                        @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
-                            <p>
-                                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
-                            </p>*@
-
-                <div class="clear"></div>
-
-            }
-           
-        </div>
-    }
-
     <!-- ./wrapper -->
     <!-- jQuery 2.2.3 -->
     @Scripts.Render("~/bundles/bootstrap")
-    
+  
     @RenderSection("scripts", required: false)
-    
 </body>
 </html>

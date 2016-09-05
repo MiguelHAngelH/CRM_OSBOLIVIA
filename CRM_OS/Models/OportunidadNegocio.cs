@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class OportunidadNegocio
+    using System.ComponentModel.DataAnnotations;
+
+    public  class OportunidadNegocio
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public OportunidadNegocio()
         {
             this.Propuesta = new HashSet<Propuesta>();
         }
-    
+        [Key]
         public int idOportunidad { get; set; }
         public string necesidadCuenta { get; set; }
         public decimal presupuesto { get; set; }
@@ -32,7 +32,6 @@ namespace CRM.ENTITY
         public virtual Colaborador Colaborador { get; set; }
         public virtual Cuenta Cuenta { get; set; }
         public virtual Producto Producto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Propuesta> Propuesta { get; set; }
     }
 }

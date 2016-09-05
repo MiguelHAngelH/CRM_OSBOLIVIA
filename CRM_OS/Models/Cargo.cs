@@ -7,23 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Cargo
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Cargo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        
         public Cargo()
         {
             this.Contacto = new HashSet<Contacto>();
         }
-    
+        [Key]
         public int idCargo { get; set; }
         public string nombre { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Contacto> Contacto { get; set; }
     }
 }

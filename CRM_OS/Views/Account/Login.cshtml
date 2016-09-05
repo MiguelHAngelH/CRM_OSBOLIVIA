@@ -8,28 +8,27 @@
     <div class="cross"><img src="~/dist/img/logo.png" class="img-responsive" alt="" /></div>
     <h2>SIGN IN </h2>
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form", role = "form" }))
-            {
+     {
         @Html.AntiForgeryToken()
-        @Html.TextBoxFor(m => m.Email, new { @class = "text", @placeholder = "Correo electrónico" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "text", @placeholder = "Correo electrónico" })<br />
         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
 
-        @Html.PasswordFor(m => m.Password, new { @class = "", @placeholder = "Contraseña" })
-        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-        <input type="submit" value="Iniciar sesión" class="submit" onclick="location.href='@Url.Action("Create", "User")'" />
-                        @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
-                            <p>
-                                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
-                            </p>*@
+        @Html.PasswordFor(m => m.Password, new { @class = "", @placeholder = "Contraseña" })<br />
+        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })<br />
+        @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña *@
+        <p>
+            
+            <span style="color:red;">Datos ingresados Incorrectamente</span>
+        </p>
+        <input type="submit" value="Iniciar sesión" class="submit"  />
+       
 
                         <div class="clear"></div>
 
     }
-    <h4>
-        Eres nuevo ?
-
-        <input type="button" id="ocultar" class="btn btn-info" value="Registrarme!" onclick="location.href='@Url.Action("Register", "Account")'" />
-    </h4>
-
+    
 
 </div>
-
+@section Script{ 
+   
+}

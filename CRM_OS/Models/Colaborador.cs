@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Colaborador
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Colaborador
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Colaborador()
+       public Colaborador()
         {
             this.Actividad = new HashSet<Actividad>();
+            this.Cuenta = new HashSet<Cuenta>();
             this.OportunidadNegocio = new HashSet<OportunidadNegocio>();
             this.Colaborador1 = new HashSet<Colaborador>();
             this.Colaborador2 = new HashSet<Colaborador>();
         }
-    
+        [Key]
         public int idColaborador { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
@@ -33,15 +34,17 @@ namespace CRM.ENTITY
         public string nroDocumento { get; set; }
         public string area { get; set; }
         public string estado { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+
         public virtual ICollection<Actividad> Actividad { get; set; }
         public virtual Usuario Usuario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        public virtual ICollection<Cuenta> Cuenta { get; set; }
+
         public virtual ICollection<OportunidadNegocio> OportunidadNegocio { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Colaborador> Colaborador1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Colaborador> Colaborador2 { get; set; }
     }
 }

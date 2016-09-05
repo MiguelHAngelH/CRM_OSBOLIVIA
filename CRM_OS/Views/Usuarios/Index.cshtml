@@ -1,0 +1,96 @@
+﻿@model IEnumerable<CRM_OS.Models.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            
+            <!-- /.box -->
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Lista de usuarios en el sistema</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Perfil.nombre)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.login)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.contraseña)
+                                </th>
+                                <th> Acciones</th>
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Perfil.nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.login)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.contraseña)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idUsuario }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idUsuario }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idUsuario })
+                                    </td>
+                                  
+                                </tr>
+                            }
+                           
+                        </tbody>
+                       
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+
+@section Scripts {
+        @Scripts.Render("~/bundles/tables")
+        @Styles.Render("~/dist/tables")
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+  });
+</script>
+
+
+}

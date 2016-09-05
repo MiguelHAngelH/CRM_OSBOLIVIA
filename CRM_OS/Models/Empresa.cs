@@ -7,13 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Empresa
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Empresa
     {
+        [Key]
+        public string Codigo { get; set; }
         public int nombre { get; set; }
         public string logo { get; set; }
         public string direccion { get; set; }

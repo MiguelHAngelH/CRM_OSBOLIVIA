@@ -7,13 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Ciudad
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Ciudad
     {
+        [Key]
         public int idCiudad { get; set; }
         public string nombre { get; set; }
         public int idPais { get; set; }

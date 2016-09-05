@@ -20,7 +20,7 @@ namespace CRM_OS
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                 
+
                       "~/bootstrap/js/bootstrap.min.js",
                       "~/plugins/fastclick/fastclick.js",
                       "~/plugins/jQuery/jquery-2.2.3.min.js",
@@ -33,7 +33,26 @@ namespace CRM_OS
                       "~/dist/js/app.min.js",
                       "~/dist/js/pages/dashboard2.js")
                       );
-            
+            bundles.Add(new ScriptBundle("~/bundles/tables").Include(
+                      "~/bootstrap/js/bootstrap.min.js",
+                      "~/plugins/fastclick/fastclick.js",
+                      "~/plugins/jQuery/jquery-2.2.3.min.js",
+                      "~/dist/js/demo.js", 
+                      "~/dist/js/app.min.js",
+                      "~/plugins/datatables/jquery.dataTables.min.js",
+                      "~/plugins/datatables/dataTables.bootstrap.min.js",
+                      "~/plugins/slimScroll/jquery.slimscroll.min.js")
+                );
+            bundles.Add(new StyleBundle("~/dist/tables").Include(
+                    "~/dist/css/skins/skin-green-light.css",
+                    "~/dist/css/AdminLTE.css",
+                    "~/fonts/ionicons.min.css",
+                    "~/fonts/font-awesome.min.css",
+                    "~/bootstrap/css/bootstrap.min.css",
+                    "~/plugins/datatables/dataTables.bootstrap.css")
+                    );
+
+
             bundles.Add(new StyleBundle("~/dist/admin").Include(                    
                      "~/dist/css/skins/skin-green-light.css",
                      "~/dist/css/AdminLTE.css",

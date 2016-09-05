@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+@using CRM_OS.Models
+<html>
+<head>
+    <link href="~/dist/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!--webfonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--//webfonts-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ADMIN CRM | OS BOLIVIA</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+
+    @Styles.Render("~/dist/admin")
+  
+    <title>@ViewBag.Title</title>
+</head>
+<body class="login">
+    @RenderBody()
+    <div>
+
+        @model LoginViewModel
+        <div class="app-cross" id="app-cross-id">
+
+            <div class="cross"><h2><img src="~/dist/img/logo.png" class="img-responsive" alt="" /> </h2></div>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.TextBoxFor(m => m.Email, new { @class = "text", @placeholder = "Correo electrónico" })<br />
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                @Html.PasswordFor(m => m.Password, new { @class = "", @placeholder = "Contraseña" })<br />
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                <input type="submit" value="Iniciar sesión" class="submit" />
+                @* Habilite esta opción después de habilitar la confirmación de la cuenta para la función de restablecimiento de contraseña
+                    <p>
+                        @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+                    </p>*@
+
+
+
+            }
+
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

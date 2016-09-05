@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.CRM_ENTY
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CRM_OSBOLIVIA_conexion : DbContext
+    public partial class Entities : DbContext
     {
-        public CRM_OSBOLIVIA_conexion()
-            : base("name=CRM_OSBOLIVIA_conexion")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -40,8 +40,13 @@ namespace CRM.ENTITY
         public virtual DbSet<Prioridad> Prioridad { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Propuesta> Propuesta { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<TipoActividad> TipoActividad { get; set; }
         public virtual DbSet<TipoProducto> TipoProducto { get; set; }
+        public virtual DbSet<UserClaims> UserClaims { get; set; }
+        public virtual DbSet<UserLogins> UserLogins { get; set; }
+        public virtual DbSet<UserRoles> UserRoles { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Empresa> Empresa { get; set; }
     }

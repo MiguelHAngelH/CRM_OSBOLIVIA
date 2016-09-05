@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
-    using System;
     using System.Collections.Generic;
-    
-    public partial class Usuario
+    using System.ComponentModel.DataAnnotations;
+
+    public class Usuario
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
             this.Colaborador = new HashSet<Colaborador>();
         }
-    
+        [Key]
         public int idUsuario { get; set; }
         public string login { get; set; }
         public string contraseña { get; set; }
         public int idPerfil { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Colaborador> Colaborador { get; set; }
         public virtual Perfil Perfil { get; set; }
     }

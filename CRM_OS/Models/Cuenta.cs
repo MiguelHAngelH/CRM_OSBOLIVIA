@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Cuenta
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Cuenta
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cuenta()
+         public Cuenta()
         {
             this.Actividad = new HashSet<Actividad>();
             this.OportunidadNegocio = new HashSet<OportunidadNegocio>();
             this.Contacto = new HashSet<Contacto>();
         }
-    
+        [Key]
         public int idCuenta { get; set; }
         public string tipoCuenta { get; set; }
         public string tipoDocumento { get; set; }
@@ -34,11 +34,9 @@ namespace CRM.ENTITY
         public int idColaboradorAsignado { get; set; }
         public string estado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Actividad> Actividad { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+       public virtual ICollection<Actividad> Actividad { get; set; }
+        public virtual Colaborador Colaborador { get; set; }
         public virtual ICollection<OportunidadNegocio> OportunidadNegocio { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contacto> Contacto { get; set; }
+       public virtual ICollection<Contacto> Contacto { get; set; }
     }
 }

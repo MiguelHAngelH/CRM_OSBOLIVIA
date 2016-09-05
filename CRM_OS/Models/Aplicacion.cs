@@ -7,19 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM.ENTITY
+namespace CRM_OS.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Aplicacion
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Aplicacion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        
         public Aplicacion()
         {
             this.Perfil = new HashSet<Perfil>();
         }
-    
+        [Key]
         public int idAplicacion { get; set; }
         public string nombre { get; set; }
         public int idModulo { get; set; }

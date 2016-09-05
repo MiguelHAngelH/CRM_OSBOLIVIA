@@ -48,12 +48,14 @@ namespace CRM_OS.Models
 
     public class LoginViewModel
     {
-        [Required]
+
+        [Required(ErrorMessage = "Se requiere este campo.")]
         [Display(Name = "Correo electrónico")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+
+        [Required(ErrorMessage = "Se requiere este campo.")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
@@ -66,13 +68,13 @@ namespace CRM_OS.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Correo electrónico")]
+     
         public string Email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Contraseña")]
+       
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
